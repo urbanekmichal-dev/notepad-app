@@ -1,8 +1,11 @@
 package pl.wasko.notepadapp.model;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import java.util.List;
 
-@RepositoryRestResource
-public interface NoteRepository extends JpaRepository<Note,Integer> {
+public interface NoteRepository {
+    List<Note> findAll();
+    Note findById(int id);
+    boolean existsById(int id);
+    Note save(Note note);
+    void deleteById(int id);
 }

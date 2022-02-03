@@ -9,21 +9,11 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @SpringBootApplication
-public class NotepadAppApplication implements RepositoryRestConfigurer {
+public class NotepadAppApplication  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NotepadAppApplication.class, args);
 	}
-
-
-
-	@Override
-	public void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener validatingListener) {
-		validatingListener.addValidator("beforeCreate",validator());
-		validatingListener.addValidator("beforeSave",validator());
-
-	}
-
 	@Bean
 	Validator validator() {
 		return new LocalValidatorFactoryBean();
