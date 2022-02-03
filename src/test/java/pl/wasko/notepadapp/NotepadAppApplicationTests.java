@@ -1,10 +1,10 @@
-package pl.wasko.notpadapp;
+package pl.wasko.notepadapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NotpadAppApplicationTests {
+class NotepadAppApplicationTests {
 
 	@Test
 	void contextLoads() {
