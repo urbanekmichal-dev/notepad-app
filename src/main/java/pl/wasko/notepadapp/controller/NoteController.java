@@ -3,6 +3,7 @@ package pl.wasko.notepadapp.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.wasko.notepadapp.AppConfigurationProperties;
 import pl.wasko.notepadapp.model.Note;
 import pl.wasko.notepadapp.model.NoteRepository;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 public class NoteController {
     private final NoteRepository noteRepository;
+    private final AppConfigurationProperties appConfigurationProperties;
 
     @GetMapping("/notes")
     public ResponseEntity<List<Note>> getNotes(){
@@ -29,6 +31,7 @@ public class NoteController {
     }
     @PostMapping("/notes")
     public ResponseEntity<Note> addNote(@RequestBody @Valid Note note){
+        note.setPropertiesValue(appConfigurationProperties.getMyProperties());
         Note result = noteRepository.save(note);
         return ResponseEntity.created(URI.create("/"+note.getId())).body(result);
     }

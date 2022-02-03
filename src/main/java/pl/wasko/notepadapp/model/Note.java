@@ -3,6 +3,7 @@ package pl.wasko.notepadapp.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -20,4 +21,5 @@ public class Note {
     private String title;
     @NotBlank(message = "Note's content must not be empty")
     private String content;
+    private String propertiesValue;
 }

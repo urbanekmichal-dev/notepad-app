@@ -1,0 +1,2 @@
+spring.jpa.hibernate.ddl-auto: auto
+properties.myProperties: 'PRODUKCJA'
